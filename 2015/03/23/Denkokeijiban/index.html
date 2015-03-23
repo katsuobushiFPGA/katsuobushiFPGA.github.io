@@ -3,17 +3,37 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Programming Memo</title>
+  <title>電光掲示板をenchant.jsでつくろう | Programming Memo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Programming Memo">
-<meta property="og:url" content="http://katsuobushifpga.github.io/index.html">
+  <meta name="description" content="はじめにこの記事は,「Denkokeijiban」の技術解説記事です.
+完成予想図完成した後の,デモがコチラになります.
+準備
+enchant.jsをダウンロードします.
+電光掲示板のドットなる部分を作成します.(ここでは,リポジトリにあるものを使います.)
+
+※NetBeansやEclipse,IntelliJIDEAなどの統合開発環境があると,開発効率が良くなります.TeraPadやメモ帳,V">
+<meta property="og:type" content="article">
+<meta property="og:title" content="電光掲示板をenchant.jsでつくろう">
+<meta property="og:url" content="http://katsuobushifpga.github.io/2015/03/23/Denkokeijiban/index.html">
 <meta property="og:site_name" content="Programming Memo">
-<meta property="og:description">
+<meta property="og:description" content="はじめにこの記事は,「Denkokeijiban」の技術解説記事です.
+完成予想図完成した後の,デモがコチラになります.
+準備
+enchant.jsをダウンロードします.
+電光掲示板のドットなる部分を作成します.(ここでは,リポジトリにあるものを使います.)
+
+※NetBeansやEclipse,IntelliJIDEAなどの統合開発環境があると,開発効率が良くなります.TeraPadやメモ帳,V">
+<meta property="og:image" content="Denkokeijiban/ch1.png">
+<meta property="og:image" content="Denkokeijiban/ch1_split.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Programming Memo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="電光掲示板をenchant.jsでつくろう">
+<meta name="twitter:description" content="はじめにこの記事は,「Denkokeijiban」の技術解説記事です.
+完成予想図完成した後の,デモがコチラになります.
+準備
+enchant.jsをダウンロードします.
+電光掲示板のドットなる部分を作成します.(ここでは,リポジトリにあるものを使います.)
+
+※NetBeansやEclipse,IntelliJIDEAなどの統合開発環境があると,開発効率が良くなります.TeraPadやメモ帳,V">
   
     <link rel="alternative" href="/atom.xml" title="Programming Memo" type="application/atom+xml">
   
@@ -59,9 +79,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Denkokeijiban" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Denkokeijiban" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/23/Denkokeijiban/" class="article-date">
   <time datetime="2015-03-23T11:46:10.000Z" itemprop="datePublished">2015-03-23</time>
@@ -74,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/23/Denkokeijiban/">電光掲示板をenchant.jsでつくろう</a>
+    <h1 class="article-title" itemprop="name">
+      電光掲示板をenchant.jsでつくろう
     </h1>
   
 
@@ -168,62 +186,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-テスト" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/08/テスト/" class="article-date">
-  <time datetime="2015-03-07T15:08:37.000Z" itemprop="datePublished">2015-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/08/テスト/">Hexoを導入してみました</a>
-    </h1>
+    <a href="/2015/03/08/テスト/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexoを導入してみました</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="なぜHexo?">なぜHexo?</h3><p> 自身のGitHubPagesを作成したは良いものの,綺麗なページが出来なくて困っていたところに,Hexoがでてきました.<br> 当初は,HTML5Initializrを使用して,bootstrapをうんたらかんたらして運用しようかと考えていました.<br> しかし,色々と手間が掛かりそうだったので,ブログっぽくしたほうが良いなと思いました.<br> そこで,「GitHubPages ブログ」などで検索してみると,Hexoの記事が出てきました.<br>記事を読むと,とても簡単に導入できるし,マークダウン使える,これでHexoを使おうと決めました.</p>
-<h3 id="MarkDown">MarkDown</h3><blockquote><p>MarkDownとは,<br>文書を記述するための軽量マークアップ言語のひとつである。 「書きやすくて読みやすいプレーンテキストとして記述した文書を、妥当なXHTML(もしくはHTML)文書へと変換できるフォーマット」として、ジョン・グル―バー(John Gruber)とアーロン・スワーツ(Aaron Swartz)によって考案された。</p>
-<footer><strong>wikipedia</strong><cite><a href="http://ja.wikipedia.org/wiki/Markdown" target="_blank" rel="external">MarkDown</a></cite></footer></blockquote>
-<p>MarkDownは,HTMLタグのように,わざわざ囲むことはしなくてもいいので,完成した文章が見やすいです.<br>また,基本的な記法さえ覚えてしまえば,サクサク書けるので,まさに書きやすくて読みやすいものです.</p>
-<h3 id="実践してみる">実践してみる</h3><p>基本となる見出し要素はこのように書きます.<br><figure class="highlight markdown"><figcaption><span>見出し</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="header"># おはよう </span></span><br><span class="line"><span class="header">## おはよう </span></span><br><span class="line"><span class="header">### おはよう </span></span><br><span class="line"><span class="header">#### おはよう</span></span><br></pre></td></tr></table></figure><br>HTMLだと下記のコードと等しいです.<br><figure class="highlight html"><figcaption><span>見出し</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>おはよう<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>おはよう<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>おはよう<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h4</span>&gt;</span>おはよう<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br></pre></td></tr></table></figure><br>pタグのような段落要素は?<br><figure class="highlight markdown"><figcaption><span>段落</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">おはようございます.</span><br><span class="line">今日も一日頑張るぞい！</span><br></pre></td></tr></table></figure><br><figure class="highlight markdown"><figcaption><span>段落</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span>おはようございます.<span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span>今日も一日頑張るぞい！<span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>リスト表記は?<br><figure class="highlight markdown"><figcaption><span>リスト</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>りんご</span><br><span class="line"><span class="bullet">- </span>バナナ</span><br><span class="line"><span class="bullet">- </span>ぶどう</span><br><span class="line"><span class="bullet">- </span>みかん</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight markdown"><figcaption><span>リスト</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span>りんご<span class="xml"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span>バナナ<span class="xml"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span>ぶどう<span class="xml"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span>みかん<span class="xml"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="Markdownを使ったところ">Markdownを使ったところ</h3><ul>
-<li>GitHub (READMEなど)</li>
-<li>Gist</li>
-<li>Reveal.js</li>
-<li>Hexo</li>
-</ul>
-<h3 id="参考文献">参考文献</h3><p><a href="http://qiita.com/Id_Seth/items/b684cfabe0f2fde0c67b" target="_blank" rel="external">Markdown書き方メモ</a><br><a href="http://kojika17.com/2013/01/starting-markdown.html" target="_blank" rel="external">文章作成やメモ書きにも便利、Markdown記法</a><br><a href="http://tech.admax.ninja/2014/09/11/how-to-write-article-in-hexo/" target="_blank" rel="external">Hexoにおける記事の書き方</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://katsuobushifpga.github.io/2015/03/08/テスト/" data-id="ci7lt8lo30000oojj12utugx5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-  
 </section>
         
           <aside id="sidebar">
