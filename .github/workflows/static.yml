@@ -31,13 +31,51 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      # Build todo-app if it exists
+      - name: Check if todo-app exists
+        id: check-todo-app
+        run: |
+          if [ -d "todo-app" ] && [ -f "todo-app/package.json" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Setup Node for todo-app
+        if: steps.check-todo-app.outputs.exists == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './todo-app/package-lock.json'
+      
+      - name: Install dependencies for todo-app
+        if: steps.check-todo-app.outputs.exists == 'true'
+        run: |
+          cd todo-app
+          npm ci
+      
+      - name: Build todo-app
+        if: steps.check-todo-app.outputs.exists == 'true'
+        run: |
+          cd todo-app
+          npm run build
+          cd ..
+          rm -rf todo-app-temp
+          mv todo-app/dist todo-app-temp
+          rm -rf todo-app
+          mv todo-app-temp todo-app
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
