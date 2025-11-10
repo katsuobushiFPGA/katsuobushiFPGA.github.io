@@ -36,10 +36,11 @@ jobs:
             cd todo-app
             npm ci
             npm run build
-            cd ..
-            rm -rf todo-app/!(dist)
-            mv todo-app/dist/* todo-app/
-            rmdir todo-app/dist
+            # distの中身をtodo-appディレクトリに移動
+            cp -r dist/* .
+            rm -rf dist
+            # ソースファイルを削除
+            rm -rf src node_modules package.json package-lock.json tsconfig.json vite.config.ts postcss.config.js tailwind.config.js
           fi
         shell: bash
       
