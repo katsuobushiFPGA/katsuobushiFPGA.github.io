@@ -9,6 +9,12 @@
       </div>
       <div v-if="isLoading" class="loading">カメラを起動中...</div>
       <div v-if="error" class="error">{{ error }}</div>
+      
+      <!-- トースト通知 -->
+      <div v-if="showToast" class="toast">
+        <div class="toast-title">✅ 検出しました！</div>
+        <div class="toast-code">{{ lastDetectedCode }}</div>
+      </div>
     </div>
     
     <div class="tips" v-if="isScanning">
@@ -78,6 +84,8 @@ const scannedCode = ref('')
 const isScanning = ref(false)
 const isLoading = ref(false)
 const error = ref('')
+const showToast = ref(false)
+const lastDetectedCode = ref('')
 const focusDistance = ref(0.2)
 const minFocusDistance = ref(0.1)
 const maxFocusDistance = ref(0.5)
@@ -86,6 +94,7 @@ const supportsFocusDistance = ref(false)
 let codeReader = null
 let controls = null
 let videoStream = null
+let isPaused = ref(false)
 
 const adjustFocus = async () => {
   if (!videoStream || !supportsFocusDistance.value) return
@@ -205,33 +214,45 @@ const startScanning = async () => {
     // バーコードのデコードを開始
     let scanCount = 0
     let lastLogTime = Date.now()
-    let detectionComplete = false
     
     controls = await codeReader.decodeFromVideoElement(
       videoElement.value,
       (result, error) => {
-        // 既に検出済みの場合は処理しない
-        if (detectionComplete) return
+        // 一時停止中は処理しない
+        if (isPaused.value) return
         
         scanCount++
         
         if (result) {
-          detectionComplete = true
-          scannedCode.value = result.getText()
-          emit('update:modelValue', result.getText())
-          emit('scan', result.getText())
+          const detectedText = result.getText()
+          
+          // 検出を一時停止
+          isPaused.value = true
+          
+          // スキャン結果を保存
+          scannedCode.value = detectedText
+          lastDetectedCode.value = detectedText
+          emit('update:modelValue', detectedText)
+          emit('scan', detectedText)
+          
           console.log('✅ バーコード検出成功!', {
-            text: result.getText(),
+            text: detectedText,
             format: result.getBarcodeFormat(),
             scanAttempts: scanCount
           })
           
-          // 1秒後に自動停止
-          setTimeout(() => {
-            stopScanning()
-          }, 1000)
+          // トースト表示
+          showToast.value = true
           
-          return  // 以降の処理をスキップ
+          // 2秒後にトーストを非表示にして再検出を再開
+          setTimeout(() => {
+            showToast.value = false
+            isPaused.value = false
+            scanCount = 0
+            console.log('🔄 スキャン再開')
+          }, 2000)
+          
+          return
         }
         
         // デバッグ: 3秒ごとにスキャン状態を表示
@@ -285,6 +306,8 @@ const stopScanning = () => {
     videoStream = null
   }
   isScanning.value = false
+  isPaused.value = false
+  showToast.value = false
   scannedCode.value = ''
 }
 
@@ -481,6 +504,49 @@ h2 {
 .error {
   background: rgba(255, 0, 0, 0.9);
   color: white;
+}
+
+.toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(76, 175, 80, 0.95);
+  color: white;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+  z-index: 10;
+}
+
+.toast-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.toast-code {
+  font-size: 24px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .controls {
