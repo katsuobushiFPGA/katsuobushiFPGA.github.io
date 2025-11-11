@@ -144,28 +144,27 @@ const startScanning = async () => {
     console.log('検出されたカメラデバイス:', videoInputDevices)
     console.log('カメラ数:', videoInputDevices.length)
     
-    if (videoInputDevices.length === 0) {
-      throw new Error('カメラが見つかりませんでした。カメラのアクセス許可を確認してください。')
+    // カメラが見つからない場合でも、デフォルトカメラで試行
+    let selectedDeviceId = null
+    if (videoInputDevices.length > 0) {
+      // 背面カメラを優先的に選択（スマホ対応）
+      const backCamera = videoInputDevices.find(device => 
+        device.label.toLowerCase().includes('back') || 
+        device.label.toLowerCase().includes('rear') ||
+        device.label.toLowerCase().includes('環境')
+      )
+      selectedDeviceId = backCamera ? backCamera.deviceId : videoInputDevices[0].deviceId
+      console.log('選択されたカメラID:', selectedDeviceId)
+      console.log('カメラ名:', backCamera ? backCamera.label : videoInputDevices[0].label)
+    } else {
+      console.log('カメラリストが空です。デフォルトカメラを使用します。')
     }
     
-    // 最初のカメラデバイスを使用（高解像度を指定）
-    const selectedDeviceId = videoInputDevices[0].deviceId
-    console.log('選択されたカメラID:', selectedDeviceId)
-    console.log('カメラ名:', videoInputDevices[0].label)
-    
-    // 高解像度・高フレームレートでカメラを起動
+    // スマホ対応: デバイスのデフォルト設定を使用
     const constraints = {
       video: {
-        deviceId: selectedDeviceId,
-        width: { ideal: 1920, min: 1280 },
-        height: { ideal: 1080, min: 720 },
-        frameRate: { ideal: 30, min: 15 },
-        facingMode: 'environment',
-        focusMode: 'continuous',
-        advanced: [
-          { focusMode: 'continuous' },
-          { focusDistance: { ideal: 0.25 } }  // 25cm に最適化
-        ]
+        deviceId: selectedDeviceId ? { exact: selectedDeviceId } : undefined,
+        facingMode: { ideal: 'environment' }
       }
     }
     
@@ -250,7 +249,25 @@ const startScanning = async () => {
     isLoading.value = false
   } catch (err) {
     console.error('カメラエラー:', err)
-    error.value = err.message || 'カメラの起動に失敗しました'
+    
+    // より詳細なエラーメッセージ
+    let errorMessage = 'カメラの起動に失敗しました'
+    
+    if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      errorMessage = 'カメラへのアクセスが拒否されました。ブラウザの設定でカメラの許可を有効にしてください。'
+    } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+      errorMessage = 'カメラが見つかりませんでした。デバイスにカメラが接続されているか確認してください。'
+    } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+      errorMessage = 'カメラは見つかりましたが、使用できません。他のアプリがカメラを使用している可能性があります。'
+    } else if (err.name === 'OverconstrainedError' || err.name === 'ConstraintNotSatisfiedError') {
+      errorMessage = 'カメラの設定が対応していません。別のカメラをお試しください。'
+    } else if (err.name === 'TypeError') {
+      errorMessage = 'カメラの設定に問題があります。ブラウザが最新版か確認してください。'
+    } else if (err.message) {
+      errorMessage = err.message
+    }
+    
+    error.value = errorMessage
     isLoading.value = false
     isScanning.value = false
   }
