@@ -44,6 +44,20 @@ jobs:
           fi
         shell: bash
       
+      - name: Build barcode-scan
+        run: |
+          if [ -f "barcode-scan/package.json" ]; then
+            cd barcode-scan
+            npm ci
+            npm run build
+            # distの中身をbarcode-scanディレクトリに移動
+            cp -r dist/* .
+            rm -rf dist
+            # ソースファイルを削除
+            rm -rf src node_modules package.json package-lock.json vite.config.js
+          fi
+        shell: bash
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
