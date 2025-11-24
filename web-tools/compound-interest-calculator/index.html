@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>積立計算シミュレーター</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>積立計算シミュレーター</h1>
+            <p>将来の資産形成をシミュレーションしてみましょう</p>
+        </header>
+
+        <div class="calculator-grid">
+            <div class="input-section card">
+                <h2>設定入力</h2>
+                <form id="calculator-form">
+                    <div class="form-group">
+                        <label for="initial-amount">初期投資額</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="initial-amount" value="0" min="0" step="10000">
+                            <span class="unit">円</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthly-amount">毎月の積立額</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="monthly-amount" value="30000" min="0" step="1000">
+                            <span class="unit">円</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="years">積立期間</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="years" value="20" min="1" max="100">
+                            <span class="unit">年</span>
+                        </div>
+                        <input type="range" id="years-range" min="1" max="50" value="20" class="range-slider">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rate">想定年利</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="rate" value="5" min="0" max="20" step="0.1">
+                            <span class="unit">%</span>
+                        </div>
+                        <input type="range" id="rate-range" min="0" max="15" step="0.1" value="5" class="range-slider">
+                    </div>
+                </form>
+            </div>
+
+            <div class="result-section">
+                <div class="summary-cards">
+                    <div class="summary-card total">
+                        <h3>最終積立金額</h3>
+                        <p id="result-total">0円</p>
+                    </div>
+                    <div class="summary-card principal">
+                        <h3>元本合計</h3>
+                        <p id="result-principal">0円</p>
+                    </div>
+                    <div class="summary-card interest">
+                        <h3>運用益</h3>
+                        <p id="result-interest">0円</p>
+                    </div>
+                </div>
+
+                <div class="chart-container card">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-section card">
+            <h2>年別推移</h2>
+            <div class="table-wrapper">
+                <table id="result-table">
+                    <thead>
+                        <tr>
+                            <th>年数</th>
+                            <th>元本合計</th>
+                            <th>運用益</th>
+                            <th>資産総額</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JavaScriptで生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
