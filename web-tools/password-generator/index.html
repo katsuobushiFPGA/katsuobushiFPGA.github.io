@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Password Generator</h1>
+            <p>Create strong and secure passwords instantly.</p>
+        </header>
+
+        <div class="result-container">
+            <span id="result">P4$5W0rD!</span>
+            <button class="btn" id="clipboard">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="settings">
+            <div class="setting">
+                <label>Password Length</label>
+                <div class="length-control">
+                    <input type="number" id="length" min="4" max="50" value="16">
+                    <input type="range" id="length-range" min="4" max="50" value="16">
+                </div>
+            </div>
+            <div class="setting">
+                <label>Include Uppercase Letters</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="setting">
+                <label>Include Lowercase Letters</label>
+                <input type="checkbox" id="lowercase" checked>
+            </div>
+            <div class="setting">
+                <label>Include Numbers</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="setting">
+                <label>Include Symbols</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+        </div>
+
+        <div class="strength-container">
+            <div class="strength-bar" id="strength-bar"></div>
+            <span id="strength-text">Medium</span>
+        </div>
+
+        <button class="btn btn-large" id="generate">
+            Generate Password
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
