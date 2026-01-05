@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+
+<title>Nightreign UI Text Generator – ELDEN RING–Inspired</title>
+
+<!-- Font -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- html2canvas -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<style>
+/* ===== Base ===== */
+body {
+  margin: 0;
+  background: #1b1b1b;
+  font-family: 'Noto Serif JP', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* ===== UI Box ===== */
+.ui-box {
+  padding: 14px 20px;
+  margin-bottom: 16px;
+
+  color: #eee;
+  font-size: clamp(18px, 5vw, 24px);
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+
+  background: rgba(20, 25, 35, 0.75);
+  backdrop-filter: blur(4px);
+
+  border-top: 1px solid rgba(180, 200, 255, 0.6);
+  border-bottom: 1px solid rgba(180, 200, 255, 0.6);
+
+  text-shadow: 0 0 6px rgba(160, 190, 255, 0.4);
+
+  /* Fade effect */
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 1.2s ease, filter 1.2s ease;
+}
+
+.ui-box.show {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ===== Controls ===== */
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  box-sizing: border-box;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  background: #2e3440;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 24px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="ui-box" id="uiBox">
+    <span id="uiText">悪魔により、罪人が現れる</span>
+  </div>
+
+  <input
+    type="text"
+    placeholder="ここに文字を入力"
+    oninput="updateText(this.value)"
+  />
+
+  <button onclick="saveImage()">画像として保存</button>
+
+  <footer class="footer">
+    <p>
+      This is an unofficial, fan-made project inspired by the UI style of ELDEN RING.<br>
+      It is not affiliated with or endorsed by FromSoftware Inc. or Bandai Namco Entertainment.<br><br>
+      本ツールは『ELDEN RING』のUI表現に着想を得た非公式・ファンメイド作品です。<br>
+      権利者各社とは一切関係ありません。
+    </p>
+  </footer>
+</div>
+
+<script>
+const uiBox = document.getElementById("uiBox");
+const uiText = document.getElementById("uiText");
+
+/* Initial fade-in */
+setTimeout(() => {
+  uiBox.classList.add("show");
+}, 500);
+
+/* Update text with fade */
+function updateText(value) {
+  uiBox.classList.remove("show");
+
+  setTimeout(() => {
+    uiText.textContent = value || "悪魔により、罪人が現れる";
+    uiBox.classList.add("show");
+  }, 400);
+}
+
+/* Save as image */
+function saveImage() {
+  html2canvas(uiBox, {
+    backgroundColor: null,
+    scale: 2
+  }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "nightreign-ui-text.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>
