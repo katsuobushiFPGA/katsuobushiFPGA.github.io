@@ -71,6 +71,20 @@ jobs:
             rm -rf src node_modules package.json package-lock.json tsconfig.json tsconfig.app.json tsconfig.node.json vite.config.ts postcss.config.js tailwind.config.js
           fi
         shell: bash
+
+      - name: Build telop
+        run: |
+          if [ -f "telop/package.json" ]; then
+            cd telop
+            npm ci
+            npm run build
+            # distの中身をtelopディレクトリに移動
+            cp -r dist/* .
+            rm -rf dist
+            # ソースファイルを削除
+            rm -rf src node_modules package.json package-lock.json tsconfig.json vite.config.js .gitignore
+          fi
+        shell: bash
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
