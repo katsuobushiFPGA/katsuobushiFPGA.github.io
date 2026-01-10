@@ -1,0 +1,120 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#app {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* テロップの外枠のデザイン */
+.telop-container-wrapper {
+  background-color: #222;
+  padding: 5px 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* テロップの流れる領域（マスクとしての役割） */
+.telop-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* テロップの高さ確保 */
+  height: 3rem; 
+  display: flex;
+  align-items: center;
+}
+
+/* 実際に動くテキスト部分 */
+.telop-content {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fdd835; /* 電光掲示板っぽい黄色 */
+  white-space: nowrap;
+  /* 初期位置はscript側で制御しますが、チラつき防止のためwill-change */
+  will-change: transform;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap; /* 小さい画面で折り返せるように */
+  gap: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  align-items: center; /* 垂直方向中央揃え */
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.color-picker-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.color-picker-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+input[type="color"] {
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button#pauseBtn {
+  background-color: #6c757d;
+}
+
+button#pauseBtn:hover {
+  background-color: #5a6268;
+}

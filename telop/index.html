@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript Telop Example</title>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>TS + GSAP Telop</h1>
+      
+      <!-- テロップ表示エリア -->
+      <div class="telop-container-wrapper">
+        <div class="telop-container">
+          <div class="telop-content">
+            HTML + CSS + TypeScript + GSAPで作られたテロップです。テキストを更新したり、一時停止したりできます。
+          </div>
+        </div>
+      </div>
+      
+      <!-- 操作パネル -->
+      <div class="controls">
+        <input type="text" id="telopArgs" placeholder="新しいテキストを入力..." />
+        
+        <div class="color-picker-group">
+          <label title="背景色">
+            背景: <input type="color" id="bgColorInput" value="#222222">
+          </label>
+          <label title="文字色">
+            文字: <input type="color" id="textColorInput" value="#fdd835">
+          </label>
+        </div>
+
+        <button id="updateBtn">更新</button>
+        <button id="pauseBtn">一時停止/再開</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
