@@ -115,14 +115,14 @@ const potentialNameless = {
     // wormは画像に※なしのため除外
     "freidia": ["ancient_dragon", "dancer"],
     "centipede": ["nameless_king"],
-    "spirit": ["dancer"]
+    "spirit": ["dancer", "godskin_duo"]
 };
 
 const raidRoutes = {
     "raid_omen": ["エデレ(常夜)", "グノスター(常夜)", "ナメレス"],
     "intelligent_slug": ["マリス(常夜)", "リブラ(常夜の王)", "ナメレス"],
     "kizashi": ["グノスター(常夜)", "カリゴ(常夜)", "ナメレス"],
-    "tamer_monster": ["リブラ(常夜の王)", "カリゴ(常夜)", "ナメレス"]
+    "tamer_monster": ["フルゴール(常夜)", "カリゴ(常夜)", "ナメレス"]
 };
 
 const suddenRoutes = {
