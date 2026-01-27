@@ -85,6 +85,20 @@ jobs:
             rm -rf src node_modules package.json package-lock.json tsconfig.json vite.config.js .gitignore
           fi
         shell: bash
+
+      - name: Build opmlpane
+        run: |
+          if [ -f "opmlpane/package.json" ]; then
+            cd opmlpane
+            npm ci
+            npm run build
+            # distの中身をopmlpaneディレクトリに移動
+            cp -r dist/* .
+            rm -rf dist
+            # ソースファイルを削除
+            rm -rf src node_modules package.json package-lock.json tsconfig.json tsconfig.node.json vite.config.ts
+          fi
+        shell: bash
       
       - name: Setup Pages
         uses: actions/configure-pages@v5

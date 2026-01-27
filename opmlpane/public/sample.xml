@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>My Favorite Sites</title>
+    <dateCreated>2024-01-01</dateCreated>
+  </head>
+  <body>
+    <outline text="テクノロジー">
+      <outline text="Hacker News" htmlUrl="https://news.ycombinator.com/" xmlUrl="https://news.ycombinator.com/rss" description="Tech news"/>
+      <outline text="TechCrunch" htmlUrl="https://techcrunch.com/" xmlUrl="https://techcrunch.com/feed/" description="Startup and tech news"/>
+      <outline text="The Verge" htmlUrl="https://www.theverge.com/" xmlUrl="https://www.theverge.com/rss/index.xml" description="Tech, science, art"/>
+    </outline>
+    <outline text="開発・プログラミング">
+      <outline text="GitHub" htmlUrl="https://github.com/" description="Code hosting platform"/>
+      <outline text="Stack Overflow" htmlUrl="https://stackoverflow.com/" description="Q&amp;A for developers"/>
+      <outline text="DEV Community" htmlUrl="https://dev.to/" xmlUrl="https://dev.to/feed" description="Developer community"/>
+      <outline text="Zenn" htmlUrl="https://zenn.dev/" description="エンジニア向け技術情報共有"/>
+      <outline text="Qiita" htmlUrl="https://qiita.com/" description="技術知識共有"/>
+    </outline>
+    <outline text="デザイン">
+      <outline text="Dribbble" htmlUrl="https://dribbble.com/" description="Design inspiration"/>
+      <outline text="Behance" htmlUrl="https://www.behance.net/" description="Creative portfolios"/>
+      <outline text="Awwwards" htmlUrl="https://www.awwwards.com/" description="Best web design"/>
+    </outline>
+    <outline text="ニュース・メディア">
+      <outline text="NHK NEWS WEB" htmlUrl="https://www3.nhk.or.jp/news/" description="NHKニュース"/>
+      <outline text="日経電子版" htmlUrl="https://www.nikkei.com/" description="日本経済新聞"/>
+      <outline text="はてなブックマーク" htmlUrl="https://b.hatena.ne.jp/" description="ソーシャルブックマーク"/>
+    </outline>
+    <outline text="ツール・サービス">
+      <outline text="Notion" htmlUrl="https://www.notion.so/" description="All-in-one workspace"/>
+      <outline text="Figma" htmlUrl="https://www.figma.com/" description="Collaborative design tool"/>
+      <outline text="Vercel" htmlUrl="https://vercel.com/" description="Frontend deployment"/>
+    </outline>
+  </body>
+</opml>
