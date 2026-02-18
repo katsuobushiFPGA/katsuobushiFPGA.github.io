@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Roulette — ELDEN RING NIGHT REIGN ランダマイザー</title>
+    <meta name="description" content="ELDEN RING NIGHT REIGNのキャラクター、ボス、縛りをランダムに決定するスロットマシン風ツール">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="flash-overlay" id="flash-overlay"></div>
+    <div class="container">
+        <header>
+            <h1>Night Roulette</h1>
+            <p class="subtitle">Random Set Generator</p>
+            <p class="game-title">ELDEN RING NIGHT REIGN</p>
+        </header>
+
+        <!-- Slot Machine -->
+        <div class="slot-machine" id="slot-machine">
+            <div class="reel-container" id="reel-character">
+                <div class="reel-label">Character</div>
+                <div class="reel-window">
+                    <div class="reel-content" id="reel-text-character">—</div>
+                </div>
+            </div>
+            <div class="reel-container" id="reel-boss">
+                <div class="reel-label">Boss</div>
+                <div class="reel-window">
+                    <div class="reel-content" id="reel-text-boss">—</div>
+                </div>
+            </div>
+            <div class="reel-container" id="reel-restriction">
+                <div class="reel-label">Restriction</div>
+                <div class="reel-window">
+                    <div class="reel-content" id="reel-text-restriction">—</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spin Button -->
+        <div class="spin-section">
+            <button id="spin-btn">SPIN</button>
+        </div>
+
+        <!-- Result Summary -->
+        <div class="result-display" id="result-display">
+            <div class="result-card">
+                <h2>— Result —</h2>
+                <div class="result-items">
+                    <div class="result-item">
+                        <div class="result-label">Character</div>
+                        <div class="result-value" id="result-character"></div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Boss</div>
+                        <div class="result-value" id="result-boss"></div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Restriction</div>
+                        <div class="result-value" id="result-restriction"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel">
+            <button class="settings-toggle" id="settings-toggle">
+                <span>⚙ 候補設定</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="settings-body" id="settings-body">
+
+                <!-- Characters -->
+                <div class="settings-category">
+                    <h3>
+                        <span>Character — キャラクター</span>
+                        <button class="select-all-btn" data-category="character">全選択/解除</button>
+                    </h3>
+                    <div class="checkbox-grid" id="checkbox-character"></div>
+                </div>
+
+                <!-- Bosses -->
+                <div class="settings-category">
+                    <h3>
+                        <span>Boss — ボス</span>
+                        <button class="select-all-btn" data-category="boss">全選択/解除</button>
+                    </h3>
+                    <div class="checkbox-grid" id="checkbox-boss"></div>
+                </div>
+
+                <!-- Restrictions -->
+                <div class="settings-category">
+                    <h3>
+                        <span>Restriction — 縛り</span>
+                        <button class="select-all-btn" data-category="restriction">全選択/解除</button>
+                    </h3>
+                    <div class="checkbox-grid" id="checkbox-restriction"></div>
+                    <div class="custom-add-row">
+                        <input type="text" id="custom-restriction-input" placeholder="カスタム縛りを入力...">
+                        <button class="add-btn" id="add-restriction-btn">追加</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <a href="../../index.html">← Topに戻る</a>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
