@@ -7,7 +7,8 @@ import DateSidebar from './components/DateSidebar.vue';
 import { db } from './db';
 
 const selectedDate = ref<string | null>(null);
-const notificationPermission = ref<NotificationPermission>(Notification.permission);
+const supportsNotification = typeof Notification !== 'undefined';
+const notificationPermission = ref<NotificationPermission>(supportsNotification ? Notification.permission : 'denied');
 const checkInterval = ref<number | null>(null);
 const lastNotifiedPostId = ref<number | null>(null);
 const isNotificationEnabled = ref(localStorage.getItem('monolog_notification') !== 'false');
@@ -17,6 +18,7 @@ const handleDateSelect = (date: string | null) => {
 };
 
 const requestNotificationPermission = async () => {
+  if (!supportsNotification) return;
   const permission = await Notification.requestPermission();
   notificationPermission.value = permission;
   if (permission === 'granted') {
@@ -32,7 +34,7 @@ const toggleNotification = () => {
 };
 
 const checkLastPostTime = async () => {
-  if (notificationPermission.value !== 'granted' || !isNotificationEnabled.value) return;
+  if (!supportsNotification || notificationPermission.value !== 'granted' || !isNotificationEnabled.value) return;
 
   try {
     const lastPost = await db.posts.orderBy('createdAt').last();
