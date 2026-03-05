@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日めくりカレンダー</title>
+    <meta name="description" content="でっかい日めくりカレンダー。今日の日付・曜日・六曜・和暦をひと目で確認。">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button class="fullscreen-btn" id="fullscreen-btn" title="フルスクリーン">⛶</button>
+
+    <div class="calendar weekday" id="calendar">
+        <!-- Top: Month -->
+        <div class="calendar-top">
+            <span class="month-en" id="month-en">March</span>
+            <span id="month-jp">3月</span>
+            <span class="year-text" id="year-text">2026年 (令和8年)</span>
+        </div>
+
+        <!-- Day Number -->
+        <div class="day-number" id="day-number">5</div>
+
+        <!-- Day of Week -->
+        <div class="day-of-week" id="day-of-week">木曜日</div>
+
+        <!-- Bottom Info -->
+        <div class="calendar-bottom">
+            <div class="info-item">
+                <span class="info-label">六曜</span>
+                <span id="wareki">—</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">通算</span>
+                <span id="rokuyo">—</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">年末まで</span>
+                <span id="day-of-year">—</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="clock" id="clock">00:00:00</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
