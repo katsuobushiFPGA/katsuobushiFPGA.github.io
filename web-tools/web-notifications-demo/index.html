@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Notifications API デモ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔔 Web Notifications API デモ</h1>
+            <p class="subtitle">ブラウザのネイティブ通知機能を体験しよう</p>
+        </header>
+
+        <main>
+            <!-- 通知許可セクション -->
+            <section class="card">
+                <h2>1. 通知の許可</h2>
+                <p>Web通知を使用するには、まずユーザーの許可が必要です。</p>
+                <div class="status-box">
+                    <span>現在の許可状態:</span>
+                    <span id="permission-status" class="status">確認中...</span>
+                </div>
+                <button id="request-permission" class="btn btn-primary">
+                    通知の許可をリクエスト
+                </button>
+            </section>
+
+            <!-- 基本的な通知 -->
+            <section class="card">
+                <h2>2. 基本的な通知</h2>
+                <p>シンプルなタイトルとメッセージだけの通知を送信します。</p>
+                <div class="form-group">
+                    <label for="basic-title">タイトル:</label>
+                    <input type="text" id="basic-title" value="こんにちは！" placeholder="通知のタイトル">
+                </div>
+                <div class="form-group">
+                    <label for="basic-body">本文:</label>
+                    <textarea id="basic-body" placeholder="通知の本文">これはWeb通知のテストです。</textarea>
+                </div>
+                <button id="send-basic" class="btn btn-secondary">
+                    基本通知を送信
+                </button>
+            </section>
+
+            <!-- カスタム通知 -->
+            <section class="card">
+                <h2>3. カスタム通知</h2>
+                <p>アイコンや画像、タグなどのオプションを設定した通知を送信します。</p>
+                <div class="form-group">
+                    <label for="custom-title">タイトル:</label>
+                    <input type="text" id="custom-title" value="新着メッセージ" placeholder="通知のタイトル">
+                </div>
+                <div class="form-group">
+                    <label for="custom-body">本文:</label>
+                    <textarea id="custom-body" placeholder="通知の本文">田中さんからメッセージが届きました。</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="custom-icon">アイコンURL:</label>
+                    <input type="text" id="custom-icon" value="https://via.placeholder.com/128/4CAF50/FFFFFF?text=📧" placeholder="アイコンのURL">
+                </div>
+                <div class="form-group">
+                    <label for="custom-tag">タグ（同じタグの通知は置換）:</label>
+                    <input type="text" id="custom-tag" value="message-1" placeholder="通知のタグ">
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="require-interaction">
+                        ユーザーの操作まで表示し続ける
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="silent-mode">
+                        サイレントモード（音を鳴らさない）
+                    </label>
+                </div>
+                <button id="send-custom" class="btn btn-secondary">
+                    カスタム通知を送信
+                </button>
+            </section>
+
+            <!-- 遅延通知 -->
+            <section class="card">
+                <h2>4. 遅延通知（タイマー）</h2>
+                <p>指定した秒数後に通知を送信します。タブを切り替えて待ってみてください。</p>
+                <div class="form-group">
+                    <label for="delay-seconds">遅延時間（秒）:</label>
+                    <input type="number" id="delay-seconds" value="5" min="1" max="60">
+                </div>
+                <button id="send-delayed" class="btn btn-secondary">
+                    遅延通知を設定
+                </button>
+                <p id="timer-status" class="timer-status"></p>
+            </section>
+
+            <!-- 通知イベント -->
+            <section class="card">
+                <h2>5. 通知イベントのログ</h2>
+                <p>通知のクリックや閉じるなどのイベントがここに表示されます。</p>
+                <div id="event-log" class="event-log">
+                    <p class="placeholder">イベントがここに表示されます...</p>
+                </div>
+                <button id="clear-log" class="btn btn-outline">
+                    ログをクリア
+                </button>
+            </section>
+        </main>
+
+        <footer>
+            <p>💡 通知が表示されない場合は、ブラウザの設定で通知が許可されているか確認してください。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
