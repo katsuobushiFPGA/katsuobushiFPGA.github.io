@@ -4,88 +4,88 @@
 const bossRoutes = {
     // 亜人 / 鈴玉狩り
     "ajin": [
-        { day2: ["omen", "tree_sentinel"], result: "グラディウス(常夜)" }
+        { day2: ["omen", "tree_sentinel"], result: "グラディウス" }
     ],
     "bell": [
-        { day2: ["omen", "tree_sentinel"], result: "グラディウス(常夜)" }
+        { day2: ["omen", "tree_sentinel"], result: "グラディウス" }
     ],
 
     // 王族の幽鬼
     "revenant": [
-        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ(常夜の王)" },
-        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール(常夜)" }
+        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ" },
+        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール" }
     ],
 
     // 接ぎ木の君主
     "grafted": [
-        { day2: ["godskin_duo", "fallingstar", "tree_sentinel"], result: "マリス(常夜)" },
-        { day2: ["godskin_duo", "draconic_tree_sentinel", "dancer"], result: "カリゴ(常夜)" }
+        { day2: ["godskin_duo", "fallingstar", "tree_sentinel"], result: "マリス" },
+        { day2: ["godskin_duo", "draconic_tree_sentinel", "dancer"], result: "カリゴ" }
     ],
 
     // 英雄のガーゴイル
     "gargoyle": [
-        { day2: ["crucible_hippo", "remote_commander", "ancient_dragon"], result: "エデレ(常夜)" },
-        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス(常夜)" }
+        { day2: ["crucible_hippo", "remote_commander", "ancient_dragon"], result: "エデレ" },
+        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス" }
     ],
 
     // 夜の騎兵
     "cavalry": [
-        { day2: ["remote_commander", "ancient_dragon", "crucible_hippo"], result: "エデレ(常夜)" },
-        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール(常夜)" }
+        { day2: ["remote_commander", "ancient_dragon", "crucible_hippo"], result: "エデレ" },
+        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール" }
     ],
 
     // 溶鉄デーモン
     "demon": [
-        { day2: ["draconic_tree_sentinel", "dragonkin", "magma_wyrm"], result: "グノスター(常夜)" },
-        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ(常夜)" },
-        { day2: ["tree_sentinel", "fallingstar", "godskin_duo"], result: "マリス(常夜)" }
+        { day2: ["draconic_tree_sentinel", "dragonkin", "magma_wyrm"], result: "グノスター" },
+        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ" },
+        { day2: ["tree_sentinel", "fallingstar", "godskin_duo"], result: "マリス" }
     ],
 
     // 戦場の宿将
     "commander": [
-        { day2: ["godskin_duo", "crucible_hippo", "death_rite_bird"], result: "リブラ(常夜の王)" },
-        { day2: ["draconic_tree_sentinel", "dragonkin", "magma_wyrm"], result: "グノスター(常夜)" }
+        { day2: ["godskin_duo", "crucible_hippo", "death_rite_bird"], result: "リブラ" },
+        { day2: ["draconic_tree_sentinel", "dragonkin", "magma_wyrm"], result: "グノスター" }
     ],
 
     // 貧食ドラゴン
     "dragon": [
-        { day2: ["remote_commander", "crucible_hippo", "ancient_dragon"], result: "エデレ(常夜)" },
-        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール(常夜)" },
-        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス(常夜)" }
+        { day2: ["remote_commander", "crucible_hippo", "ancient_dragon"], result: "エデレ" },
+        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール" },
+        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス" }
     ],
 
     // ミミズ顔
     "worm": [
-        { day2: ["remote_commander", "crucible_hippo", "ancient_dragon"], result: "エデレ(常夜)" },
-        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール(常夜)" },
-        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス(常夜)" }
+        { day2: ["remote_commander", "crucible_hippo", "ancient_dragon"], result: "エデレ" },
+        { day2: ["remote_commander", "dragonkin", "nameless_king"], result: "フルゴール" },
+        { day2: ["tree_sentinel", "godskin_duo", "fallingstar"], result: "マリス" }
     ],
 
     // 公のフレイディア
     "freidia": [
-        { day2: ["crucible_hippo", "remote_commander", "ancient_dragon"], result: "エデレ(常夜)" },
-        { day2: ["crucible_hippo", "death_rite_bird"], result: "リブラ(常夜の王)" },
-        { day2: ["draconic_tree_sentinel", "godskin_duo", "dancer"], result: "カリゴ(常夜)" }
+        { day2: ["crucible_hippo", "remote_commander", "ancient_dragon"], result: "エデレ" },
+        { day2: ["crucible_hippo", "death_rite_bird"], result: "リブラ" },
+        { day2: ["draconic_tree_sentinel", "godskin_duo", "dancer"], result: "カリゴ" }
     ],
 
     // ティビアの呼び舟
     "tibia": [
-        { day2: ["draconic_tree_sentinel", "magma_wyrm", "dragonkin"], result: "グノスター(常夜)" },
-        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ(常夜)" },
-        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ(常夜の王)" }
+        { day2: ["draconic_tree_sentinel", "magma_wyrm", "dragonkin"], result: "グノスター" },
+        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ" },
+        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ" }
     ],
 
     // 百足のデーモン
     "centipede": [
-        { day2: ["dragonkin", "draconic_tree_sentinel", "magma_wyrm"], result: "グノスター(常夜)" },
-        { day2: ["dragonkin", "remote_commander", "nameless_king"], result: "フルゴール(常夜)" },
-        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ(常夜の王)" }
+        { day2: ["dragonkin", "draconic_tree_sentinel", "magma_wyrm"], result: "グノスター" },
+        { day2: ["dragonkin", "remote_commander", "nameless_king"], result: "フルゴール" },
+        { day2: ["crucible_hippo", "death_rite_bird", "godskin_duo"], result: "リブラ" }
     ],
 
     // 爛れた樹霊
     "spirit": [
-        { day2: ["draconic_tree_sentinel", "magma_wyrm", "dragonkin"], result: "グノスター(常夜)" },
-        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ(常夜)" }
+        { day2: ["draconic_tree_sentinel", "magma_wyrm", "dragonkin"], result: "グノスター" },
+        { day2: ["draconic_tree_sentinel", "dancer", "godskin_duo"], result: "カリゴ" }
     ],
 
     // DLCルート
@@ -119,35 +119,35 @@ const potentialNameless = {
 };
 
 const raidRoutes = {
-    "raid_omen": ["エデレ(常夜)", "グノスター(常夜)", "ナメレス", "瓦礫の王(ストラゲス)"],
-    "intelligent_slug": ["マリス(常夜)", "リブラ(常夜の王)", "ナメレス", "瓦礫の王(ストラゲス)"],
-    "kizashi": ["グノスター(常夜)", "カリゴ(常夜)", "ナメレス", "瓦礫の王(ストラゲス)"],
-    "tamer_monster": ["フルゴール(常夜)", "カリゴ(常夜)", "ナメレス", "瓦礫の王(ストラゲス)"],
+    "raid_omen": ["エデレ", "グノスター", "ナメレス", "瓦礫の王(ストラゲス)"],
+    "intelligent_slug": ["マリス", "リブラ", "ナメレス", "瓦礫の王(ストラゲス)"],
+    "kizashi": ["グノスター", "カリゴ", "ナメレス", "瓦礫の王(ストラゲス)"],
+    "tamer_monster": ["フルゴール", "カリゴ", "ナメレス", "瓦礫の王(ストラゲス)"],
     // 以下の襲撃者は絞り込めないが、そのボス自身は候補から除外
-    "raid_harmonia": ["グラディウス(常夜)", "ナメレス", "エデレ(常夜)", "リブラ(常夜の王)", "カリゴ(常夜)", "マリス(常夜)", "フルゴール(常夜)", "グノスター(常夜)", "瓦礫の王(ストラゲス)"],  // 安寧者たち(ハルモニア)を除外
-    "raid_caligo": ["グラディウス(常夜)", "ナメレス", "エデレ(常夜)", "リブラ(常夜の王)", "マリス(常夜)", "フルゴール(常夜)", "グノスター(常夜)", "安寧者たち", "瓦礫の王(ストラゲス)"],  // カリゴ(常夜)を除外
-    "raid_gradius": ["ナメレス", "エデレ(常夜)", "リブラ(常夜の王)", "カリゴ(常夜)", "マリス(常夜)", "フルゴール(常夜)", "グノスター(常夜)", "安寧者たち", "瓦礫の王(ストラゲス)"]  // グラディウス(常夜)を除外
+    "raid_harmonia": ["グラディウス", "ナメレス", "エデレ", "リブラ", "カリゴ", "マリス", "フルゴール", "グノスター", "瓦礫の王(ストラゲス)"],  // 安寧者たち(ハルモニア)を除外
+    "raid_caligo": ["グラディウス", "ナメレス", "エデレ", "リブラ", "マリス", "フルゴール", "グノスター", "安寧者たち", "瓦礫の王(ストラゲス)"],  // カリゴを除外
+    "raid_gradius": ["ナメレス", "エデレ", "リブラ", "カリゴ", "マリス", "フルゴール", "グノスター", "安寧者たち", "瓦礫の王(ストラゲス)"]  // グラディウスを除外
 };
 
 const suddenRoutes = {
-    "mausoleum": ["マリス(常夜)", "カリゴ(常夜)", "安寧者たち"],
-    "meteorite": ["グラディウス(常夜)", "エデレ(常夜)", "カリゴ(常夜)", "安寧者たち"],
-    "frenzied_flame": ["グノスター(常夜)", "リブラ(常夜の王)", "安寧者たち", "瓦礫の王(ストラゲス)"],
-    "ancient_tower": ["グノスター(常夜)", "リブラ(常夜の王)", "安寧者たち"],
-    "night_faction": ["グラディウス(常夜)", "マリス(常夜)", "フルゴール(常夜)", "安寧者たち"],
-    "new_threat": ["エデレ(常夜)", "フルゴール(常夜)", "安寧者たち", "瓦礫の王(ストラゲス)"]
+    "mausoleum": ["マリス", "カリゴ", "安寧者たち"],
+    "meteorite": ["グラディウス", "エデレ", "カリゴ", "安寧者たち"],
+    "frenzied_flame": ["グノスター", "リブラ", "安寧者たち", "瓦礫の王(ストラゲス)"],
+    "ancient_tower": ["グノスター", "リブラ", "安寧者たち"],
+    "night_faction": ["グラディウス", "マリス", "フルゴール", "安寧者たち"],
+    "new_threat": ["エデレ", "フルゴール", "安寧者たち", "瓦礫の王(ストラゲス)"]
 };
 
 // ボスの弱点情報
 const bossInfo = {
-    "グラディウス(常夜)": { weakness: ["聖"], note: "" },
+    "グラディウス": { weakness: ["聖"], note: "" },
     "ナメレス": { weakness: ["聖"], note: "" },
-    "エデレ(常夜)": { weakness: ["毒"], note: "" },
-    "リブラ(常夜の王)": { weakness: ["聖", "発狂"], note: "" },
-    "カリゴ(常夜)": { weakness: ["炎"], note: "" },
-    "マリス(常夜)": { weakness: ["雷"], note: "" },
-    "フルゴール(常夜)": { weakness: ["雷"], note: "" },
-    "グノスター(常夜)": { weakness: ["炎"], note: "" },
+    "エデレ": { weakness: ["毒"], note: "" },
+    "リブラ": { weakness: ["聖", "発狂"], note: "" },
+    "カリゴ": { weakness: ["炎"], note: "" },
+    "マリス": { weakness: ["雷"], note: "" },
+    "フルゴール": { weakness: ["雷"], note: "" },
+    "グノスター": { weakness: ["炎"], note: "" },
     "安寧者たち": { weakness: ["睡眠"], note: "DLC (ハルモニア)" },
     "瓦礫の王(ストラゲス)": { weakness: ["なし"], note: "DLC" }
 };
