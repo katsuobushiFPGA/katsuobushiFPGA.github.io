@@ -102,13 +102,93 @@ header .game-title {
   margin-top: 0.3rem;
 }
 
+/* --- Player Count Selector --- */
+.player-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.player-select-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Native radios keep arrow-key navigation and roving tab order for free;
+   they are visually hidden and the labels carry the segmented-control look. */
+.player-select-buttons {
+  display: inline-flex;
+  position: relative;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.player-select-buttons input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player-select-buttons label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.player-select-buttons input[type="radio"]:not(:checked):not(:disabled)+label:hover {
+  background: var(--bg-card-hover);
+  color: var(--gold);
+}
+
+.player-select-buttons input[type="radio"]:checked+label {
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  color: var(--bg-primary);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(200, 168, 78, 0.25);
+}
+
+.player-select-buttons input[type="radio"]:focus-visible+label {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.player-select-buttons input[type="radio"]:disabled+label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /* --- Slot Machine --- */
-.slot-machine {
+/* Two rows: per-player character reels on top, party-wide reels below. */
+.slot-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   margin-bottom: 2rem;
+}
+
+.slot-machine {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 1), 1fr);
+  gap: 1.2rem;
   perspective: 800px;
+}
+
+.slot-shared {
+  --cols: 2;
 }
 
 .reel-container {
@@ -703,8 +783,16 @@ header .game-title {
 
 .result-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(var(--cols, 1), 1fr);
   gap: 1rem;
+}
+
+.result-items+.result-items {
+  margin-top: 1rem;
+}
+
+.result-shared {
+  --cols: 2;
 }
 
 .result-item {
@@ -754,9 +842,24 @@ footer a:hover {
     font-size: 1.8rem;
   }
 
-  .slot-machine {
+  /* Override the property itself, not --cols: JS sets --cols inline and
+     an inline custom property would otherwise beat this media query. */
+  .slot-machine,
+  .result-items {
     grid-template-columns: 1fr;
+  }
+
+  .slot-group,
+  .slot-machine {
     gap: 1rem;
+  }
+
+  .player-select {
+    gap: 0.6rem;
+  }
+
+  .player-select-buttons label {
+    padding: 0.4rem 0.8rem;
   }
 
   .reel-container {
@@ -781,7 +884,6 @@ footer a:hover {
   }
 
   .result-items {
-    grid-template-columns: 1fr;
     gap: 0.8rem;
   }
 }

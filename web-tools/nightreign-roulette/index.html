@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Night Roulette — ELDEN RING NIGHT REIGN ランダマイザー</title>
-    <meta name="description" content="ELDEN RING NIGHT REIGNのキャラクター、ボス、縛りをランダムに決定するスロットマシン風ツール">
+    <meta name="description"
+        content="ELDEN RING NIGHT REIGNのキャラクター、ボス、縛りをランダムに決定するスロットマシン風ツール。1〜3人のプレイヤー人数を指定すると、キャラだけを人数分まとめて抽選します。">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,24 +19,37 @@
             <p class="game-title">ELDEN RING NIGHT REIGN</p>
         </header>
 
+        <!-- Player Count -->
+        <div class="player-select">
+            <span class="player-select-label" id="player-select-label">Players</span>
+            <div class="player-select-buttons" role="radiogroup" aria-labelledby="player-select-label">
+                <input type="radio" name="player-count" id="player-count-1" value="1" checked>
+                <label for="player-count-1">1人</label>
+                <input type="radio" name="player-count" id="player-count-2" value="2">
+                <label for="player-count-2">2人</label>
+                <input type="radio" name="player-count" id="player-count-3" value="3">
+                <label for="player-count-3">3人</label>
+            </div>
+        </div>
+
         <!-- Slot Machine -->
-        <div class="slot-machine" id="slot-machine">
-            <div class="reel-container" id="reel-character">
-                <div class="reel-label">Character</div>
-                <div class="reel-window">
-                    <div class="reel-content" id="reel-text-character">—</div>
+        <div class="slot-group">
+            <!-- Characters: one reel per player, rendered by script.js -->
+            <div class="slot-machine" id="slot-characters"></div>
+
+            <!-- Shared across the party -->
+            <div class="slot-machine slot-shared">
+                <div class="reel-container" id="reel-boss">
+                    <div class="reel-label">Boss</div>
+                    <div class="reel-window">
+                        <div class="reel-content" id="reel-text-boss">—</div>
+                    </div>
                 </div>
-            </div>
-            <div class="reel-container" id="reel-boss">
-                <div class="reel-label">Boss</div>
-                <div class="reel-window">
-                    <div class="reel-content" id="reel-text-boss">—</div>
-                </div>
-            </div>
-            <div class="reel-container" id="reel-restriction">
-                <div class="reel-label">Restriction</div>
-                <div class="reel-window">
-                    <div class="reel-content" id="reel-text-restriction">—</div>
+                <div class="reel-container" id="reel-restriction">
+                    <div class="reel-label">Restriction</div>
+                    <div class="reel-window">
+                        <div class="reel-content" id="reel-text-restriction">—</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,11 +63,8 @@
         <div class="result-display" id="result-display">
             <div class="result-card">
                 <h2>— Result —</h2>
-                <div class="result-items">
-                    <div class="result-item">
-                        <div class="result-label">Character</div>
-                        <div class="result-value" id="result-character"></div>
-                    </div>
+                <div class="result-items" id="result-characters"></div>
+                <div class="result-items result-shared">
                     <div class="result-item">
                         <div class="result-label">Boss</div>
                         <div class="result-value" id="result-boss"></div>
